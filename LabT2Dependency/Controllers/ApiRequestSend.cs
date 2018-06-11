@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LabT2Dependency.Controllers;
+using LabT2Dependency.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,14 +11,24 @@ using Microsoft.AspNetCore.Mvc;
 namespace LabT2Dependency
 {
     [Route("api/")]
-    public class ApiRequestSend : Controller
+    public class ApiRequestSend : Controller, IApiRequestSend<Journey>
     {
+        readonly List<Journey> journeys = new List<Journey>();
+
+
+
+        public ApiRequestSend(List<Journey> journeys)
+        {
+            this.journeys = journeys;
+        }
+
         // GET: api/<controller>
         [Route("getAll")]
         [HttpGet]
-        public IEnumerable<string> GetAllData()
+        public IEnumerable<Journey> GetAllData()
         {
-            return new string[] { "value1", "value2" };
+           
+            return journeys;
         }
 
         // GET api/<controller>/5
@@ -42,6 +54,23 @@ namespace LabT2Dependency
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+       
+
+        public void AddEntity(Journey journey)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ModifyEntity(int id, Journey journey)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteEntity(Journey journey)
+        {
+            throw new NotImplementedException();
         }
     }
 }
