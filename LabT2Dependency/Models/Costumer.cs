@@ -12,6 +12,6 @@ namespace LabT2Dependency.Models
         public int Age { get; set; }
         public string Occupation { get; set; }
         public bool TravelsWithAnimal { get; set; }
-        public List<Journey> Journeys { get; set; }
+        public virtual List<Journey> Journeys { get; set; }
     }
 }

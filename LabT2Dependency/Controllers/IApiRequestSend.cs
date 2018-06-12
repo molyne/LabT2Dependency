@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace LabT2Dependency.Controllers
 {
-    interface IApiRequestSend<T>
+   public interface IApiRequestSend<T>
     {
         IEnumerable<T> GetAllData();
 
-        void AddEntity(T journey);
+        void AddEntity(T entity);
 
-        void ModifyEntity(int id, T journey);
+        void ModifyEntity(int id, T entity);
 
-        void DeleteEntity(T journey);
+        void DeleteEntity(T entity);
 
     }
 }

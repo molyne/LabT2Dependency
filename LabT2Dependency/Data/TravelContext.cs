@@ -1,4 +1,5 @@
-﻿using LabT2Dependency.Models;
+﻿using LabT2Dependency.Controllers;
+using LabT2Dependency.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,9 @@ namespace LabT2Dependency.Data
         {
         }
 
-        public DbSet<Journey> Journeys { get; set; }
-        public DbSet<Costumer> Costumers { get; set; }
+        public virtual DbSet<Journey> Journeys { get; set; }
+        public virtual DbSet<Costumer> Costumers { get; set; }
+
+      
     }
 }
